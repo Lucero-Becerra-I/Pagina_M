@@ -1,0 +1,54 @@
+.category-card {
+  min-height: 190px;
+
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border-radius: 20px;
+
+  background: #f1ebe2;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(60, 50, 40, 0.08);
+}
+
+.category-icon {
+  font-size: 34px;
+}
+
+.category-card h3 {
+  margin: 0 0 5px;
+
+  color: #454039;
+
+  font-family: Georgia, serif;
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.category-card p {
+  margin: 0;
+
+  color: #80776e;
+
+  font-size: 13px;
+}
+
+.category-arrow {
+  align-self: flex-end;
+
+  color: #8f7967;
+
+  font-size: 20px;
+}

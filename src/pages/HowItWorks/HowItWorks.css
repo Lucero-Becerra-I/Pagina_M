@@ -1,0 +1,250 @@
+/* HOW IT WORKS */
+
+.how-it-works {
+  background: #faf8f4;
+  color: #403b36;
+}
+
+/* HERO */
+
+.how-it-works-hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 100px 24px 90px;
+  text-align: center;
+}
+
+.how-it-works-hero .section-eyebrow {
+  display: block;
+  margin-bottom: 18px;
+  color: #9a8170;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.how-it-works-hero h1 {
+  margin: 0 0 22px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(44px, 7vw, 72px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: #403b36;
+}
+
+.how-it-works-hero p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #746b63;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* CONTENT */
+
+.how-it-works-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 32px 100px;
+}
+
+.how-it-works-content .section-heading {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.how-it-works-content .section-eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  color: #9a8170;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.how-it-works-content h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 5vw, 46px);
+  font-weight: 400;
+  color: #403b36;
+}
+
+/* STEPS */
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.step-card {
+  min-height: 270px;
+  padding: 32px 28px;
+  background: #fffdf9;
+  border: 1px solid #e8e1d8;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(64, 59, 54, 0.08);
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 32px;
+  border-radius: 50%;
+  background: #eee5dc;
+  color: #806a58;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.step-card h3 {
+  margin: 0 0 13px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #403b36;
+}
+
+.step-card p {
+  margin: 0;
+  color: #786f67;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+/* NOTE */
+
+.reservation-note {
+  max-width: 1100px;
+  margin: 0 auto 100px;
+  padding: 38px 44px;
+  background: #4b4038;
+  color: #fffaf5;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 26px;
+  align-items: center;
+}
+
+.reservation-note-label {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  border: 1px solid rgba(255, 250, 245, 0.35);
+  border-radius: 50%;
+  color: #f1dfcc;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.reservation-note h2 {
+  margin: 0 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: 400;
+}
+
+.reservation-note p {
+  max-width: 700px;
+  margin: 0;
+  color: #ded3ca;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .how-it-works-hero {
+    padding: 80px 24px 70px;
+  }
+
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .how-it-works-content {
+    padding: 20px 24px 80px;
+  }
+
+  .reservation-note {
+    margin-right: 24px;
+    margin-left: 24px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .how-it-works-hero {
+    padding: 65px 20px 60px;
+  }
+
+  .how-it-works-hero h1 {
+    font-size: 45px;
+  }
+
+  .how-it-works-hero p {
+    font-size: 15px;
+  }
+
+  .how-it-works-content {
+    padding: 10px 18px 65px;
+  }
+
+  .how-it-works-content .section-heading {
+    margin-bottom: 35px;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .step-card {
+    min-height: auto;
+    padding: 28px 24px;
+  }
+
+  .step-number {
+    margin-bottom: 22px;
+  }
+
+  .reservation-note {
+    margin: 0 18px 65px;
+    padding: 30px 24px;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .reservation-note-label {
+    grid-column: auto;
+    grid-row: auto;
+    margin: 0 auto 22px;
+  }
+
+  .reservation-note h2 {
+    font-size: 24px;
+  }
+
+  .reservation-note p {
+    font-size: 13px;
+  }
+}

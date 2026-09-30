@@ -1,0 +1,349 @@
+.ticket-page {
+  min-height: 100vh;
+  background: #f5f1eb;
+}
+
+.ticket-page-container {
+  max-width: 650px;
+
+  margin: 0 auto;
+
+  padding: 75px 20px 100px;
+}
+
+.ticket-top {
+  text-align: center;
+
+  margin-bottom: 35px;
+}
+
+.ticket-eyebrow {
+  color: #9c836c;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+}
+
+.ticket-top h1 {
+  margin: 12px 0 8px;
+
+  font-family: Georgia, serif;
+
+  font-size: 43px;
+  font-weight: 400;
+}
+
+.ticket-top p {
+  margin: 0;
+
+  color: #777069;
+
+  font-size: 13px;
+}
+
+.ticket-card {
+  padding: 35px;
+
+  background: #fffdfa;
+
+  border-radius: 4px;
+
+  box-shadow:
+    0 25px 60px rgba(55, 45, 35, 0.1);
+}
+
+.ticket-brand {
+  text-align: center;
+
+  margin-bottom: 30px;
+
+  color: #403b36;
+
+  font-family: Georgia, serif;
+
+  font-size: 25px;
+}
+
+.ticket-brand span {
+  color: #9d816a;
+
+  margin-right: 7px;
+}
+
+.ticket-main-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ticket-main-header div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ticket-main-header span,
+.ticket-user span,
+.ticket-code-section span,
+.ticket-total span {
+  color: #a08a75;
+
+  font-size: 9px;
+
+  letter-spacing: 1.4px;
+}
+
+.ticket-main-header strong {
+  font-family: Georgia, serif;
+
+  font-size: 22px;
+
+  font-weight: 400;
+}
+
+.ticket-status {
+  padding: 7px 10px;
+
+  background: #e9eee3;
+
+  border-radius: 20px;
+
+  color: #68715e;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+}
+
+.ticket-line {
+  height: 1px;
+
+  margin: 25px 0;
+
+  background: #e8e1d8;
+}
+
+.ticket-user {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.ticket-user strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.ticket-code-section {
+  margin-top: 25px;
+
+  text-align: center;
+}
+
+.ticket-code-section strong {
+  display: block;
+
+  margin-top: 9px;
+
+  color: #765f4e;
+
+  font-family: monospace;
+
+  font-size: 24px;
+
+  letter-spacing: 4px;
+}
+
+.ticket-qr {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+
+  gap: 10px;
+
+  margin: 25px 0;
+}
+
+.fake-qr {
+  width: 115px;
+  height: 115px;
+
+  padding: 9px;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 4px;
+
+  border: 5px solid #302d29;
+
+  background: white;
+}
+
+.fake-qr div {
+  background: #302d29;
+}
+
+.ticket-qr small {
+  color: #91877d;
+
+  font-size: 10px;
+}
+
+.ticket-products {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.ticket-product {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.ticket-product div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ticket-product strong {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.ticket-product span {
+  color: #8b8178;
+
+  font-size: 11px;
+}
+
+.ticket-total {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 28px;
+  padding-top: 22px;
+
+  border-top: 1px dashed #d8d0c6;
+}
+
+.ticket-total strong {
+  font-family: Georgia, serif;
+
+  font-size: 23px;
+
+  font-weight: 400;
+}
+
+.ticket-note {
+  margin-top: 25px;
+
+  padding: 15px;
+
+  background: #f5f1eb;
+
+  text-align: center;
+}
+
+.ticket-note strong {
+  font-size: 11px;
+}
+
+.ticket-note p {
+  margin: 6px 0 0;
+
+  color: #766e66;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+.ticket-actions {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.ticket-print,
+.ticket-whatsapp {
+  padding: 13px 20px;
+
+  border-radius: 25px;
+
+  font-size: 11px;
+
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.ticket-print {
+  border: none;
+
+  background: #46413b;
+  color: white;
+}
+
+.ticket-whatsapp {
+  border: 1px solid #c9bba9;
+
+  color: #6f5e50;
+}
+
+.ticket-account {
+  display: block;
+
+  margin-top: 25px;
+
+  text-align: center;
+
+  color: #8c7662;
+
+  font-size: 11px;
+
+  text-decoration: none;
+}
+
+@media print {
+
+  .header,
+  .announcement-bar,
+  .footer,
+  .ticket-actions,
+  .ticket-account {
+    display: none;
+  }
+
+  .ticket-page {
+    background: white;
+  }
+
+  .ticket-page-container {
+    padding: 0;
+  }
+
+  .ticket-card {
+    box-shadow: none;
+  }
+
+}
