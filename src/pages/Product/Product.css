@@ -1,0 +1,500 @@
+/* PÁGINA DEL PRODUCTO */
+
+.product-page {
+  min-height: 75vh;
+  padding: 34px 24px 70px;
+  background: #faf8f4;
+}
+
+.product-container {
+  width: min(1160px, 100%);
+  margin: 0 auto;
+}
+
+/* VOLVER */
+
+.product-back {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: #777069;
+  font-size: 12px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.product-back:hover {
+  color: #403b36;
+}
+
+/* DETALLE */
+
+.product-detail {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.92fr)
+    minmax(350px, 0.82fr);
+  gap: 55px;
+  align-items: start;
+}
+
+/* IMAGEN */
+
+.product-image-wrapper {
+  position: relative;
+  width: min(100%, 560px);
+  overflow: hidden;
+  border-radius: 20px;
+  background: #eee8df;
+  aspect-ratio: 0.94;
+}
+
+.product-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.product-image-wrapper:hover .product-image {
+  transform: scale(1.02);
+}
+
+.product-image-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 9px;
+  background: #403b36;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+/* INFORMACIÓN */
+
+.product-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  padding: 4px 0;
+}
+
+.product-main-info {
+  width: 100%;
+}
+
+.product-purchase-section {
+  width: 100%;
+  margin-top: 27px;
+}
+
+/* CATEGORÍA */
+
+.product-category {
+  display: block;
+  margin-bottom: 9px;
+  color: #9a826d;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* TÍTULO */
+
+.product-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.product-information h1 {
+  margin: 0;
+  color: #403b36;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 4.2vw, 54px);
+  font-weight: 400;
+  line-height: 1.02;
+}
+
+/* FAVORITOS */
+
+.product-favorite {
+  flex: 0 0 auto;
+  width: 39px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  padding: 0;
+  border: 1px solid #ddd4ca;
+  border-radius: 50%;
+  background: #fffdf9;
+  color: #514a43;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.product-favorite:hover {
+  transform: scale(1.05);
+  border-color: #cfc2b7;
+}
+
+.product-favorite svg {
+  width: 18px;
+  height: 18px;
+}
+
+.product-favorite.is-favorite {
+  border-color: #8a6255;
+  background: #8a6255;
+  color: #fff;
+}
+
+/* PRECIO */
+
+.product-price {
+  margin: 8px 0 0;
+  color: #5e5148;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* SEPARADOR */
+
+.product-separator {
+  width: 100%;
+  height: 1px;
+  margin: 18px 0;
+  background: #e4ddd5;
+}
+
+/* DESCRIPCIÓN */
+
+.product-description {
+  margin: 0 0 18px;
+  color: #777069;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* RESERVA */
+
+.product-reservation-note {
+  display: flex;
+  gap: 11px;
+  margin-bottom: 0;
+  padding: 13px 14px;
+  border-radius: 12px;
+  background: #eee9df;
+}
+
+.product-reservation-note > span {
+  flex: 0 0 auto;
+  color: #8c745f;
+  font-size: 16px;
+}
+
+.product-reservation-note strong {
+  display: block;
+  margin-bottom: 3px;
+  color: #403b36;
+  font-size: 12px;
+}
+
+.product-reservation-note p {
+  margin: 0;
+  color: #716960;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+/* COMPRA */
+
+.product-purchase {
+  display: grid;
+  grid-template-columns: 125px 1fr;
+  gap: 10px;
+  align-items: stretch;
+}
+
+/* CANTIDAD */
+
+.product-quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  padding: 0 7px 0 12px;
+  border: 1px solid #ddd4ca;
+  border-radius: 999px;
+  background: #fffdf9;
+}
+
+.product-quantity > span {
+  color: #403b36;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-control button {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #403b36;
+  cursor: pointer;
+  font-size: 17px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.quantity-control button:hover {
+  background: #f0ebe5;
+}
+
+.quantity-control span {
+  min-width: 18px;
+  color: #403b36;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* BOTÓN DE RESERVA */
+
+.product-reserve-button {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 999px;
+  background: #403b36;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.product-reserve-button:hover {
+  background: #62574e;
+  transform: translateY(-1px);
+}
+
+.product-reserve-button:active {
+  transform: translateY(0);
+}
+
+/* INFORMACIÓN DE COMPRA */
+
+.product-info-list {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 17px;
+}
+
+.product-info-list div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.product-info-list span {
+  color: #8b765f;
+  font-size: 11px;
+}
+
+.product-info-list p {
+  margin: 0;
+  color: #777069;
+  font-size: 10px;
+}
+
+/* PRODUCTO NO ENCONTRADO */
+
+.product-not-found {
+  width: min(600px, 100%);
+  margin: 60px auto;
+  padding: 45px 30px;
+  border: 1px solid #e5ded5;
+  border-radius: 20px;
+  background: #fffdf9;
+  text-align: center;
+}
+
+.product-not-found > span {
+  color: #9a826d;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.product-not-found h1 {
+  margin: 14px 0;
+  color: #403b36;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 38px;
+  font-weight: 400;
+}
+
+.product-not-found p {
+  margin-bottom: 25px;
+  color: #777069;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.product-back-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 45px;
+  padding: 0 23px;
+  border-radius: 999px;
+  background: #403b36;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.product-back-button:hover {
+  background: #62574e;
+  transform: translateY(-1px);
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+  .product-page {
+    padding-top: 28px;
+  }
+
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: start;
+  }
+
+  .product-image-wrapper {
+    max-width: 620px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .product-information {
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
+    min-height: auto;
+  }
+
+  .product-purchase-section {
+    margin-top: 24px;
+  }
+}
+
+/* MÓVIL */
+
+@media (max-width: 600px) {
+  .product-page {
+    padding: 25px 16px 55px;
+  }
+
+  .product-back {
+    margin-bottom: 20px;
+    font-size: 11px;
+  }
+
+  .product-image-wrapper {
+    border-radius: 16px;
+    aspect-ratio: 0.95;
+  }
+
+  .product-information h1 {
+    font-size: 39px;
+  }
+
+  .product-favorite {
+    width: 37px;
+    height: 37px;
+  }
+
+  .product-favorite svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .product-price {
+    font-size: 16px;
+  }
+
+  .product-separator {
+    margin: 15px 0;
+  }
+
+  .product-description {
+    margin-bottom: 15px;
+    font-size: 12px;
+  }
+
+  .product-reservation-note {
+    padding: 11px 12px;
+  }
+
+  .product-reservation-note p {
+    font-size: 10px;
+  }
+
+  .product-purchase-section {
+    margin-top: 20px;
+  }
+
+  .product-purchase {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .product-quantity {
+    min-height: 44px;
+  }
+
+  .product-reserve-button {
+    min-height: 48px;
+  }
+
+  .product-info-list {
+    flex-wrap: wrap;
+    gap: 8px 13px;
+    margin-top: 14px;
+  }
+
+  .product-info-list p {
+    font-size: 9px;
+  }
+}
