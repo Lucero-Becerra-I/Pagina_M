@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 
 import { products } from "../../data/products";
 import { useFavorites } from "../../context/FavoritesContext";
+import { useCart } from "../../context/CartContext";
 
 import "./Product.css";
 
@@ -16,11 +17,14 @@ function Product() {
   );
 
   const [quantity, setQuantity] = useState(1);
+  const [added, setAdded] = useState(false);
 
   const {
     isFavorite,
     toggleFavorite,
   } = useFavorites();
+
+  const { addToCart } = useCart();
 
   if (!product) {
     return (
@@ -52,16 +56,28 @@ function Product() {
 
   const increaseQuantity = () => {
     setQuantity((current) => current + 1);
+    setAdded(false);
   };
 
   const decreaseQuantity = () => {
     setQuantity((current) =>
       Math.max(1, current - 1)
     );
+    setAdded(false);
   };
 
   const handleFavorite = () => {
     toggleFavorite(product);
+  };
+
+  const handleAddToCart = () => {
+    addToCart(product, quantity);
+
+    setAdded(true);
+
+    window.setTimeout(() => {
+      setAdded(false);
+    }, 1800);
   };
 
   return (
@@ -214,17 +230,11 @@ function Product() {
                 <button
                   type="button"
                   className="product-reserve-button"
-                  onClick={() => {
-                    alert(
-                      `Agregamos ${quantity} unidad${
-                        quantity > 1
-                          ? "es"
-                          : ""
-                      } de ${product.name} a tu reserva.`
-                    );
-                  }}
+                  onClick={handleAddToCart}
                 >
-                  Agregar a mi reserva
+                  {added
+                    ? "Agregado a tu reserva ✓"
+                    : "Agregar a mi reserva"}
                 </button>
               </div>
 

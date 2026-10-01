@@ -1,19 +1,75 @@
 import { Link, useParams } from "react-router-dom";
 
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
-
 import "./Ticket.css";
+
+/* TICKET */
+
+const RESERVATION_STORAGE_KEY = "lunaria-last-reservation";
+
+function getSavedReservation() {
+  try {
+    const savedReservation = localStorage.getItem(
+      RESERVATION_STORAGE_KEY
+    );
+
+    return savedReservation
+      ? JSON.parse(savedReservation)
+      : null;
+  } catch {
+    return null;
+  }
+}
 
 function Ticket() {
   const { id } = useParams();
 
+  const reservation =
+    getSavedReservation();
+
+  if (!reservation) {
+    return (
+      <main className="ticket-page">
+
+        <div className="ticket-page-container">
+
+          <div className="ticket-top">
+
+            <span className="ticket-eyebrow">
+              TICKET
+            </span>
+
+            <h1>
+              Ticket no encontrado
+            </h1>
+
+            <p>
+              No encontramos una reserva guardada
+              asociada a este ticket.
+            </p>
+
+          </div>
+
+          <Link
+            to="/tienda"
+            className="ticket-account"
+          >
+            ← Volver a la tienda
+          </Link>
+
+        </div>
+
+      </main>
+    );
+  }
+
+  const total = Number(
+    reservation.total || 0
+  );
+
   return (
-    <div className="ticket-page">
+    <main className="ticket-page">
 
-      <Header />
-
-      <main className="ticket-page-container">
+      <div className="ticket-page-container">
 
         <div className="ticket-top">
 
@@ -26,7 +82,8 @@ function Ticket() {
           </h1>
 
           <p>
-            Presentá este ticket al momento de retirar tu pedido.
+            Presentá este ticket al momento de
+            retirar tu pedido.
           </p>
 
         </div>
@@ -41,13 +98,15 @@ function Ticket() {
           <div className="ticket-main-header">
 
             <div>
+
               <span>
                 PEDIDO
               </span>
 
               <strong>
-                #{id || "A4821"}
+                #{reservation.orderId || id}
               </strong>
+
             </div>
 
             <div className="ticket-status">
@@ -65,7 +124,7 @@ function Ticket() {
             </span>
 
             <strong>
-              María González
+              {reservation.customerName}
             </strong>
 
           </div>
@@ -77,7 +136,7 @@ function Ticket() {
             </span>
 
             <strong>
-              R7K-29P
+              {reservation.pickupCode}
             </strong>
 
           </div>
@@ -101,41 +160,37 @@ function Ticket() {
 
           <div className="ticket-products">
 
-            <div className="ticket-product">
+            {reservation.products.map(
+              (product) => (
+                <div
+                  className="ticket-product"
+                  key={product.id}
+                >
 
-              <div>
-                <strong>
-                  Bufanda Suave
-                </strong>
+                  <div>
 
-                <span>
-                  Crema · x1
-                </span>
-              </div>
+                    <strong>
+                      {product.name}
+                    </strong>
 
-              <strong>
-                $18.500
-              </strong>
+                    <span>
+                      {product.category} · x
+                      {product.quantity}
+                    </span>
 
-            </div>
+                  </div>
 
-            <div className="ticket-product">
+                  <strong>
+                    $
+                    {(
+                      Number(product.price) *
+                      product.quantity
+                    ).toLocaleString("es-AR")}
+                  </strong>
 
-              <div>
-                <strong>
-                  Pulsera Delicada
-                </strong>
-
-                <span>
-                  Dorado · x1
-                </span>
-              </div>
-
-              <strong>
-                $14.000
-              </strong>
-
-            </div>
+                </div>
+              )
+            )}
 
           </div>
 
@@ -146,7 +201,7 @@ function Ticket() {
             </span>
 
             <strong>
-              $32.500
+              ${total.toLocaleString("es-AR")}
             </strong>
 
           </div>
@@ -159,7 +214,8 @@ function Ticket() {
 
             <p>
               Esta reserva no representa un pago.
-              El importe será abonado al momento del retiro.
+              El importe será abonado al momento
+              del retiro.
             </p>
 
           </div>
@@ -169,6 +225,7 @@ function Ticket() {
         <div className="ticket-actions">
 
           <button
+            type="button"
             onClick={() => window.print()}
             className="ticket-print"
           >
@@ -193,11 +250,9 @@ function Ticket() {
           ← Volver a mi cuenta
         </Link>
 
-      </main>
+      </div>
 
-      <Footer />
-
-    </div>
+    </main>
   );
 }
 

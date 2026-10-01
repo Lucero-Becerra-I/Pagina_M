@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+import { products } from "../../data/products";
+
 import "./Header.css";
 
 /* HEADER */
 
 function Header({ cartCount = 0 }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
 
   const closeMenus = () => {
     setMenuOpen(false);
@@ -13,6 +18,8 @@ function Header({ cartCount = 0 }) {
 
   const handleNavigation = () => {
     closeMenus();
+    setSearchOpen(false);
+    setSearchValue("");
 
     window.scrollTo({
       top: 0,
@@ -20,6 +27,59 @@ function Header({ cartCount = 0 }) {
       behavior: "smooth",
     });
   };
+
+  const openSearch = () => {
+    setMenuOpen(false);
+    setSearchOpen(true);
+  };
+
+  const closeSearch = () => {
+    setSearchOpen(false);
+    setSearchValue("");
+  };
+
+  useEffect(() => {
+    if (!searchOpen) {
+      return;
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        closeSearch();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [searchOpen]);
+
+  const normalizedSearch = searchValue
+    .trim()
+    .toLowerCase();
+
+  const searchResults =
+    normalizedSearch.length > 0
+      ? products
+          .filter((product) => {
+            const name = String(product.name || "").toLowerCase();
+            const category = String(
+              product.category || ""
+            ).toLowerCase();
+            const description = String(
+              product.description || ""
+            ).toLowerCase();
+
+            return (
+              name.includes(normalizedSearch) ||
+              category.includes(normalizedSearch) ||
+              description.includes(normalizedSearch)
+            );
+          })
+          .slice(0, 6)
+      : [];
 
   return (
     <>
@@ -106,6 +166,8 @@ function Header({ cartCount = 0 }) {
               type="button"
               className="header-action"
               aria-label="Buscar"
+              aria-expanded={searchOpen}
+              onClick={openSearch}
             >
               <svg
                 viewBox="0 0 24 24"
@@ -199,6 +261,114 @@ function Header({ cartCount = 0 }) {
           </div>
 
         </div>
+
+        {searchOpen && (
+          <div className="header-search">
+            <div className="header-search-inner">
+
+              <div className="header-search-input-wrapper">
+
+                <svg
+                  className="header-search-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                >
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="7"
+                  />
+
+                  <path d="m20 20-4-4" />
+                </svg>
+
+                <input
+                  type="text"
+                  value={searchValue}
+                  onChange={(event) =>
+                    setSearchValue(event.target.value)
+                  }
+                  placeholder="Buscar productos..."
+                  autoFocus
+                  aria-label="Buscar productos"
+                />
+
+                {searchValue && (
+                  <button
+                    type="button"
+                    className="header-search-clear"
+                    onClick={() => setSearchValue("")}
+                    aria-label="Limpiar búsqueda"
+                  >
+                    ×
+                  </button>
+                )}
+
+              </div>
+
+              <button
+                type="button"
+                className="header-search-close"
+                onClick={closeSearch}
+                aria-label="Cerrar búsqueda"
+              >
+                ×
+              </button>
+
+            </div>
+
+            {normalizedSearch.length > 0 && (
+              <div className="header-search-results">
+
+                {searchResults.length > 0 ? (
+                  searchResults.map((product) => (
+                    <Link
+                      key={product.id}
+                      to={`/producto/${product.id}`}
+                      className="header-search-result"
+                      onClick={handleNavigation}
+                    >
+                      <img
+                        src={product.image}
+                        alt=""
+                      />
+
+                      <div>
+                        <span>
+                          {product.category}
+                        </span>
+
+                        <strong>
+                          {product.name}
+                        </strong>
+
+                        {product.price && (
+                          <small>
+                            ${Number(product.price).toLocaleString("es-AR")}
+                          </small>
+                        )}
+                      </div>
+                    </Link>
+                  ))
+                ) : (
+                  <div className="header-search-empty">
+                    <span>
+                      No encontramos resultados
+                    </span>
+
+                    <p>
+                      Probá con otro nombre o categoría.
+                    </p>
+                  </div>
+                )}
+
+              </div>
+            )}
+
+          </div>
+        )}
 
         {menuOpen && (
           <div className="mobile-navigation">
